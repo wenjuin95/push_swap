@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:49:59 by utente            #+#    #+#             */
-/*   Updated: 2023/12/31 00:26:09 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/10 13:28:45 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,13 @@ void	append_node(t_stack **stack, int nbr)
 
 t_stack	*find_smallest(t_stack *stack)
 {
-	long			small;
+	long	small;
 	t_stack	*small_node;
 
 	if (!stack)
 		return (NULL);
-	small = LONG_MAX;
+	small = stack->value;
+	small_node = stack;
 	while (stack)
 	{
 		if (stack->value < small)

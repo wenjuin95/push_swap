@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/02 14:51:33 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/10 13:29:04 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ bool	stack_sorted(t_stack *stack)
 
 static t_stack	*find_highest(t_stack *stack)
 {
-	int				big;
-	t_stack			*biggest_node;
+	long	big;
+	t_stack	*biggest_node;
 
 	if (NULL == stack)
 		return (NULL);
-	big = INT_MIN;
+	big = stack->value;
+	biggest_node = stack;
 	while (stack)
 	{
 		if (stack->value > big)

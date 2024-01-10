@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/01/02 14:00:12 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/10 13:15:08 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 }				t_stack;	
 
 //*** Handle input ./push_swap "1 -42 1337" ***
-char			**ft_split(char *str, char separator);
+char			**ft_split(char *s, char separator);
 
 //*** Handle errors-free ***
 // void			free_matrix(char **argv);
