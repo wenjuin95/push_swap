@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:02:48 by utente            #+#    #+#             */
-/*   Updated: 2024/01/02 14:39:59 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/11 14:10:55 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	set_current_position(t_stack *stack)
 }
 
 /*
-	first if is for "b" to look for a
-	second if can't find then look for the smallest node to target
+	first if is for "b" to look for "a" nearest and biggest number to target
+	second if can't find then look for the smallest number to target
 */
 static void	set_target_node(t_stack *a, t_stack *b)
 {

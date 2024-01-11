@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:47:02 by utente            #+#    #+#             */
-/*   Updated: 2023/12/31 00:36:38 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/11 14:20:26 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ static void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *c_node)
 	set_current_position(*b);
 }
 
-
+/*
+	if either not top mode check belong "a" or "b" to male it top
+*/
 void	finish_rotation(t_stack **s,
 							t_stack *top_node,
 							char c)
@@ -52,6 +54,13 @@ void	finish_rotation(t_stack **s,
 	}
 }
 
+/*
+	1. found the cheapest and return
+	2. if both is above median
+	3. if both is below median
+	4. if above condition not meet make "b" to top
+	5. if above condition not meet make "a" to top
+*/
 static void	move_nodes(t_stack **a, t_stack **b)
 {
 	t_stack	*c_node;
@@ -66,6 +75,12 @@ static void	move_nodes(t_stack **a, t_stack **b)
 	pa(a, b, false);
 }
 
+/*
+	1. push every node to "b" until left 3 node and sort it to small to big
+	2. push to "a" iwth "init_node" and "move_node"
+	3. check the current position and check the number is sort from small to big
+	4. if not sort it 
+*/
 void	sort_stack(t_stack **a, t_stack **b)
 {
 	t_stack	*smallest;

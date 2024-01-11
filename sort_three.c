@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/10 13:29:04 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/11 14:38:46 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ bool	stack_sorted(t_stack *stack)
 	return (true);
 }
 
-static t_stack	*find_highest(t_stack *stack)
+/*
+	look for the biggest node
+*/
+static t_stack	*find_biggest(t_stack *stack)
 {
 	long	big;
 	t_stack	*biggest_node;
@@ -46,11 +49,15 @@ static t_stack	*find_highest(t_stack *stack)
 	return (biggest_node);
 }
 
+/*
+	1. if the first is biggest then [ra] if second is biggest then [rra] the third from bottom to top
+	2. if the first bigger then second then [sa]
+*/
 void	sort_three(t_stack **a)
 {
 	t_stack	*biggest_node;
 
-	biggest_node = find_highest(*a);
+	biggest_node = find_biggest(*a);
 	if (*a == biggest_node)
 		ra(a, false);
 	else if ((*a)->next == biggest_node)
@@ -59,11 +66,17 @@ void	sort_three(t_stack **a)
 		sa(a, false);
 }
 
+/*
+	1. first "init_node" of the "set_current_position" to get the 
+	   smallest node to top
+	2. push every smallest node to "b"
+	3. use "init_node" to get everything to [pa] back
+*/
 void	handle_five(t_stack **a, t_stack **b)
 {
 	while (stack_len(*a) > 3)
 	{
-		init_nodes(*a, *b);
+		set_current_position(*a);
 		finish_rotation(a, find_smallest(*a), 'a');
 		pb(b, a, false);
 	}
