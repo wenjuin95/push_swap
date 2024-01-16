@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/11 14:38:46 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/16 14:37:52 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	stack_sorted(t_stack *stack)
 */
 static t_stack	*find_biggest(t_stack *stack)
 {
-	long	big;
+	int		big;
 	t_stack	*biggest_node;
 
 	if (NULL == stack)
@@ -50,7 +50,8 @@ static t_stack	*find_biggest(t_stack *stack)
 }
 
 /*
-	1. if the first is biggest then [ra] if second is biggest then [rra] the third from bottom to top
+	1. if the first is biggest then [ra] if second is biggest 
+	   then [rra] the third from bottom to top
 	2. if the first bigger then second then [sa]
 */
 void	sort_three(t_stack **a)

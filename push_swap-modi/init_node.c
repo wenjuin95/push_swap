@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:02:48 by utente            #+#    #+#             */
-/*   Updated: 2024/01/11 14:10:55 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/16 14:37:39 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ static void	set_target_node(t_stack *a, t_stack *b)
 {
 	t_stack	*current_a;
 	t_stack	*target_node;
-	long	match_index;
+	int		match_index;
 
 	while (b)
 	{
-		match_index = LONG_MAX;
+		match_index = INT_MAX;
 		current_a = a;
 		while (current_a)
 		{
@@ -59,7 +59,7 @@ static void	set_target_node(t_stack *a, t_stack *b)
 			}
 			current_a = current_a->next;
 		}
-		if (match_index == LONG_MAX)
+		if (match_index == INT_MAX)
 			b->target_node = find_smallest(a);
 		else
 			b->target_node = target_node;
@@ -96,12 +96,12 @@ void	set_push_cost(t_stack *a, t_stack *b)
 */
 void	set_cheapest(t_stack *b)
 {
-	long	match_value;
+	int		match_value;
 	t_stack	*match_node;
 
 	if (! b)
 		return ;
-	match_value = LONG_MAX;
+	match_value = INT_MAX;
 	while (b)
 	{
 		if (b->push_cost < match_value)
