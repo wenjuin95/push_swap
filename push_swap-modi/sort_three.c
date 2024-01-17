@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/16 14:37:52 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/17 12:41:58 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	sort_three(t_stack **a)
 }
 
 /*
-	1. first "init_node" of the "set_current_position" to get the 
+	1. first "init_node" of the "set_current_index" to get the 
 	   smallest node to top
 	2. push every smallest node to "b"
 	3. use "init_node" to get everything to [pa] back
@@ -77,7 +77,7 @@ void	handle_five(t_stack **a, t_stack **b)
 {
 	while (stack_len(*a) > 3)
 	{
-		set_current_position(*a);
+		set_current_index(*a);
 		finish_rotation(a, find_smallest(*a), 'a');
 		pb(b, a, false);
 	}

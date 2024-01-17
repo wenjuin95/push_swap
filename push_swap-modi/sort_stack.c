@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:47:02 by utente            #+#    #+#             */
-/*   Updated: 2024/01/11 14:20:26 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/17 12:41:51 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ static void	rotate_both(t_stack **a, t_stack **b, t_stack *c_node)
 {
 	while (*a != c_node->target_node && *b != c_node)
 		rr(a, b, false);
-	set_current_position(*a);
-	set_current_position(*b);
+	set_current_index(*a);
+	set_current_index(*b);
 }
 
 static void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *c_node)
 {
 	while (*a != c_node->target_node && *b != c_node)
 		rrr(a, b, false);
-	set_current_position(*a);
-	set_current_position(*b);
+	set_current_index(*a);
+	set_current_index(*b);
 }
 
 /*
@@ -100,7 +100,7 @@ void	sort_stack(t_stack **a, t_stack **b)
 		init_nodes(*a, *b);
 		move_nodes(a, b);
 	}
-	set_current_position(*a);
+	set_current_index(*a);
 	smallest = find_smallest(*a);
 	if (smallest->above_median)
 		while (*a != smallest)

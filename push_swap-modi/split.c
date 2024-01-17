@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 19:11:45 by utente            #+#    #+#             */
-/*   Updated: 2024/01/16 14:34:55 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/17 12:16:55 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,73 +86,3 @@ char	**ft_split(char *str, char separator)
 	vector_strings[i] = NULL;
 	return (vector_strings);
 }
-
-// static size_t	count_sub_len(char *s, char separator)
-// {
-// 	size_t	count;
-// 	size_t	i;
-
-// 	if (s == 0 || separator == 0)
-// 		return (0);
-// 	i = 0;
-// 	count = 0;
-// 	while (s[i])
-// 	{
-// 		while (s[i] == separator)
-// 			i++;
-// 		if (s[i] != '\0')
-// 			count++;
-// 		while (s[i] != separator && s[i])
-// 			i++;
-// 	}
-// 	return (count);
-// }
-
-// static char	*copy_sub(char *str, size_t n)
-// {
-// 	size_t	i;
-// 	char	*result;
-
-// 	if (str == NULL)
-// 		return (NULL);
-// 	result = malloc(sizeof(char) * n + 1);
-// 	if (result == NULL)
-// 		return (NULL);
-// 	i = 0;
-// 	while (i < n)
-// 	{
-// 		result[i] = str[i];
-// 		i++;
-// 	}
-// 	result[i] = '\0';
-// 	return (result);
-// }
-
-// char	**ft_split(char *s, char separator)
-// {
-// 	size_t	i;
-// 	char	**split;
-// 	char	*sub_str;
-
-// 	if (s == NULL)
-// 		return (NULL);
-// 	split = (char **)malloc(sizeof(char *)
-// 			* ((count_sub_len(s, separator)) + 1));
-// 	if (split == NULL)
-// 		return (NULL);
-// 	i = 0;
-// 	while (*s)
-// 	{
-// 		while (*s && *s == separator)
-// 			s++;
-// 		if (*s == '\0')
-// 			break ;
-// 		sub_str = s;
-// 		while (*s && *s != separator)
-// 			s++;
-// 		split[i] = copy_sub(sub_str, s - sub_str);
-// 		i++;
-// 	}
-// 	split[i] = NULL;
-// 	return (split);
-// }
