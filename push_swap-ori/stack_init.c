@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:42:38 by utente            #+#    #+#             */
-/*   Updated: 2024/01/02 14:00:04 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/17 12:55:12 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,4 @@ void	stack_init(t_stack **a, char **argv)
 		append_node(a, (int)nbr);
 		++i;
 	}
-
 }

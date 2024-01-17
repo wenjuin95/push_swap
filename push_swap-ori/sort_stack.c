@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:47:02 by utente            #+#    #+#             */
-/*   Updated: 2023/12/31 00:36:38 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/17 12:55:01 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *c_node)
 	set_current_position(*a);
 	set_current_position(*b);
 }
-
 
 void	finish_rotation(t_stack **s,
 							t_stack *top_node,

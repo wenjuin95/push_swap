@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/02 14:51:33 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/17 12:20:51 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	handle_five(t_stack **a, t_stack **b)
 {
 	while (stack_len(*a) > 3)
 	{
-		init_nodes(*a, *b);
+		set_current_position(*a);
 		finish_rotation(a, find_smallest(*a), 'a');
 		pb(b, a, false);
 	}
