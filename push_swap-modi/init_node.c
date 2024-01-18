@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:02:48 by utente            #+#    #+#             */
-/*   Updated: 2024/01/17 12:41:32 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/18 12:39:46 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,12 @@ void	set_current_index(t_stack *stack)
 }
 
 /*
-	first if is for "b" to look for "a" nearest and biggest number to target
-	second if can't find then look for the smallest number to target
+	1. if is for "b" to look for "a" nearest and biggest number to target
+	example: 
+			6 > 3 && 6 < INT_MAX (6 will be the match_index)
+			5 > 3 && 5 < 6       (update 6 to 5)
+	2. if can't find then look for the smallest number to target
+	note: when same number in < or > is false
 */
 static void	set_target_node(t_stack *a, t_stack *b)
 {
@@ -93,6 +97,7 @@ void	set_push_cost(t_stack *a, t_stack *b)
 
 /*
 	loop through and compare which is the cheapest
+	note: when same number in < or > is false
 */
 void	set_cheapest(t_stack *b)
 {

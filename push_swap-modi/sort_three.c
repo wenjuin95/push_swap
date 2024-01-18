@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/17 12:41:58 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/18 12:58:43 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ void	sort_three(t_stack **a)
 }
 
 /*
-	1. first "init_node" of the "set_current_index" to get the 
-	   smallest node to top
-	2. push every smallest node to "b"
-	3. use "init_node" to get everything to [pa] back
+	1. get thier index and whether is above or below
+	1. find the smallest node in "a" and move to top
+	2. push the smallest to "b"
+	3. until left 3 node
 */
 void	handle_five(t_stack **a, t_stack **b)
 {
