@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 20:57:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/18 12:59:41 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/21 01:17:48 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	error_free(t_stack **a)
 {
 	free_stack(a);
 	write(2, "Error\n", 6);
-	exit(1);
+	return ;
 }
 
 int	error_syntax(char *str)

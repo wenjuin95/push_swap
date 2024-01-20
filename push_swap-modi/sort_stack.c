@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:47:02 by utente            #+#    #+#             */
-/*   Updated: 2024/01/17 12:41:51 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/19 13:24:10 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	finish_rotation(t_stack **s,
 
 /*
 	1. found the cheapest and return
-	2. if both is above median
-	3. if both is below median
-	4. if above condition not meet make "b" to top
-	5. if above condition not meet make "a" to top
+	2. if both is above 
+	3. if both is below
+	4. if only "b" above make "b" to top
+	5. if only "a" above make "a" to top
 */
 static void	move_nodes(t_stack **a, t_stack **b)
 {
