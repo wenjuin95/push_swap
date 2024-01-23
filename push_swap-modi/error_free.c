@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 20:57:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 15:33:33 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 20:12:04 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	error_free(t_stack **a, char **argv, bool argc_2)
+void	error_free(t_stack **a, char **argv, int argc)
 {
 	free_stack(a);
-	if (argc_2)
+	if (argc == 2)
 		free_split(argv);
 	write(2, "Error\n", 6);
 	exit(1);

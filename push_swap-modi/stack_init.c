@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:42:38 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 15:32:03 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 18:19:53 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-void	stack_init(t_stack **a, char **argv, bool argc_2)
+void	stack_init(t_stack **a, char **argv, int argc)
 {
 	long	nbr;
 	int		i;
@@ -49,15 +49,15 @@ void	stack_init(t_stack **a, char **argv, bool argc_2)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			error_free(a, argv, argc_2);
+			error_free(a, argv, argc);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, argc_2);
+			error_free(a, argv, argc);
 		if (error_duplicate(*a, (int)nbr))
-			error_free(a, argv, argc_2);
+			error_free(a, argv, argc);
 		append_node(a, (int)nbr);
 		++i;
 	}
-	if (argc_2)
+	if (argc == 2)
 		free_split(argv);
 }

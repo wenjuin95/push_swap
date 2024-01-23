@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 15:32:29 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 18:20:05 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ char			**ft_split(char *str, char separator);
 
 //*** Handle errors-free ***
 void			free_split(char **argv);
-void			error_free(t_stack **a, char **argv, bool argc_2);
+void			error_free(t_stack **a, char **argv, int argc);
 void			free_stack(t_stack **stack);
 int				error_duplicate(t_stack *a, int nbr);
 int				error_syntax(char *str);
 
 //*** Stack creation ***
-void			stack_init(t_stack **a, char **argv, bool argc_2);
+void			stack_init(t_stack **a, char **argv, int argc);
 void			init_nodes(t_stack *a, t_stack *b);
 void			set_current_position(t_stack *stack);
 void			set_push_cost(t_stack *a, t_stack *b);
