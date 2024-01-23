@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 		return (0);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv + 1);
+	stack_init(&a, argv + 1, argc == 2);
 	len = stack_len(a);
 	next_line = get_next_line(0);
 	while (next_line)

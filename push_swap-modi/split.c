@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 19:11:45 by utente            #+#    #+#             */
-/*   Updated: 2024/01/21 01:19:30 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 15:14:03 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**ft_split(char *str, char separator)
 	i = 0;
 	words_number = count_words(str, separator);
 	if (!words_number)
-		return (NULL);
+		exit(1);
 	vector_strings = malloc(sizeof(char *) * (size_t)(words_number + 2));
 	if (!vector_strings)
 		return (NULL);

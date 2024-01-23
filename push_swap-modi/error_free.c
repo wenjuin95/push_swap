@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 20:57:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/21 01:17:48 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 15:33:33 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_split(char **argv)
+{
+	int	i;
+
+	i = -1;
+	if (!argv)
+		return ;
+	while (argv[i])
+		free(argv[i++]);
+	free(argv - 1);
+}
 
 void	free_stack(t_stack **stack)
 {
@@ -29,11 +41,13 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	error_free(t_stack **a)
+void	error_free(t_stack **a, char **argv, bool argc_2)
 {
 	free_stack(a);
+	if (argc_2)
+		free_split(argv);
 	write(2, "Error\n", 6);
-	return ;
+	exit(1);
 }
 
 int	error_syntax(char *str)

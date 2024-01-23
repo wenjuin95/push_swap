@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+         #
+#    By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/08 12:14:59 by utente            #+#    #+#              #
-#    Updated: 2024/01/09 16:53:11 by welow            ###   ########.fr        #
+#    Updated: 2024/01/23 15:44:17 by welow            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,25 +19,19 @@ SRCS = 	error_free.c push.c reverse_rotate.c rotate.c \
 		swap.c init_node.c
 MAN = push_swap.c
 BS = checker.c get_next_line.c get_next_line_utils.c
-OBJS = $(SRCS:.c=.o)
-OBJM = $(MAN:.c=.o)
-OBJB = $(BS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) $(OBJM)
-	$(CC) $(CFLAGS) $(OBJS) $(OBJM) -o $@
+$(NAME) :
+	$(CC) $(CFLAGS) $(SRCS) $(MAN) -o $@
 
-$(NAME2) :$(OBJS) $(OBJB)
-	$(CC) $(CFLAGS) $(OBJS) $(OBJB) -o $@
+$(NAME2) :
+	$(CC) $(CFLAGS) $(SRCS) $(BS) -o $@
 
-%.o : %.c 
-	$(CC) $(CFLAGS) -c $< -o $@ 
 	
 clean :
-	rm -f $(OBJS)
-	rm -f $(OBJM)
-	rm -f $(OBJB)
+	rm -f $(NAME)
+	rm -f $(NAME2)
 
 fclean : clean
 	rm -f $(NAME)

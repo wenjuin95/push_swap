@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/01/02 14:00:12 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 15:03:28 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -34,7 +35,7 @@ typedef struct s_stack
 char			**ft_split(char *str, char separator);
 
 //*** Handle errors-free ***
-// void			free_matrix(char **argv);
+void			free_split(char **argv);
 void			error_free(t_stack **a);
 void			free_stack(t_stack **stack);
 int				error_duplicate(t_stack *a, int nbr);
