@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/17 12:20:51 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 16:20:11 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ bool	stack_sorted(t_stack *stack)
 	return (true);
 }
 
-static t_stack	*find_highest(t_stack *stack)
+static t_stack	*find_biggest(t_stack *stack)
 {
 	int				big;
 	t_stack			*biggest_node;
 
-	if (NULL == stack)
+	if (!stack)
 		return (NULL);
 	big = INT_MIN;
 	while (stack)
@@ -49,7 +49,7 @@ void	sort_three(t_stack **a)
 {
 	t_stack	*biggest_node;
 
-	biggest_node = find_highest(*a);
+	biggest_node = find_biggest(*a);
 	if (*a == biggest_node)
 		ra(a, false);
 	else if ((*a)->next == biggest_node)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 10:24:35 by utente            #+#    #+#             */
-/*   Updated: 2024/01/17 12:54:45 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 16:25:56 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last_node;
-	int		len;
 
-	len = stack_len(*stack);
-	if (*stack == NULL || stack == NULL || len == 1)
+	if (!*stack || !stack)
 		return ;
 	last_node = find_last_node(*stack);
 	last_node->prev->next = NULL;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_command.c                                     :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:53:41 by utente            #+#    #+#             */
-/*   Updated: 2023/12/31 00:26:15 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/23 16:26:50 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 static void	swap(t_stack **head)
 {
-	int	len;
-
-	len = stack_len(*head);
-	if (*head == NULL || head == NULL || len == 1)
+	if (!*head || !head)
 		return ;
 	*head = (*head)->next;
 	(*head)->prev->prev = *head;
