@@ -6,13 +6,13 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:42:38 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 18:19:53 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/29 21:09:25 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	long	result;
 	int		sign;
@@ -40,23 +40,48 @@ static long	ft_atol(const char *str)
 	return (result * sign);
 }
 
+char	**make_input(char **argv)
+{
+	char	*str;
+	char	*s1;
+	char	*s2;
+	int		i;
+	char	**argument;
+
+	i = 0;
+	str = ft_strdup("");
+	while (argv[i])
+	{
+		s1 = ft_strjoin(str, argv[i]);
+		free(str);
+		s2 = ft_strjoin(s1, " ");
+		str = ft_strdup(s2);
+		free(s1);
+		free(s2);
+		i++;
+	}
+	argument = ft_split(str, ' ');
+	free(str);
+	return (argument);
+
+}
+
 void	stack_init(t_stack **a, char **argv, int argc)
 {
 	long	nbr;
 	int		i;
 
 	i = 0;
-	while (argv[i])
+	while (argv[++i])
 	{
 		if (error_syntax(argv[i]))
-			error_free(a, argv, argc);
+			error_free(a);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, argc);
+			error_free(a);
 		if (error_duplicate(*a, (int)nbr))
-			error_free(a, argv, argc);
+			error_free(a);
 		append_node(a, (int)nbr);
-		++i;
 	}
 	if (argc == 2)
 		free_split(argv);

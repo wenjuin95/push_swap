@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 20:57:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 20:12:04 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/29 19:30:15 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	free_split(char **argv)
 {
 	int	i;
 
-	i = -1;
+	i = 0;
 	if (!argv)
 		return ;
 	while (argv[i])
 		free(argv[i++]);
-	free(argv - 1);
+	free(argv);
 }
 
 void	free_stack(t_stack **stack)
@@ -41,11 +41,9 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	error_free(t_stack **a, char **argv, int argc)
+void	error_free(t_stack **a)
 {
 	free_stack(a);
-	if (argc == 2)
-		free_split(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }

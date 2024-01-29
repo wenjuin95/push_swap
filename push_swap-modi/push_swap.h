@@ -6,7 +6,7 @@
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 18:20:05 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/29 21:53:35 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "./libft/libft.h"
 
 typedef struct s_stack
 {
@@ -32,16 +33,20 @@ typedef struct s_stack
 }				t_stack;	
 
 //*** Handle input ./push_swap "1 -42 1337" ***
-char			**ft_split(char *str, char separator);
+char			**ft_split(char const *s, char separator);
+int				ft_strlen(char const *str);
+char			*ft_strdup(const char *s);
+char			*ft_strjoin(char const *s1, char const *s2);
 
 //*** Handle errors-free ***
 void			free_split(char **argv);
-void			error_free(t_stack **a, char **argv, int argc);
+void			error_free(t_stack **a);
 void			free_stack(t_stack **stack);
 int				error_duplicate(t_stack *a, int nbr);
 int				error_syntax(char *str);
 
 //*** Stack creation ***
+char			**make_input(char **argv);
 void			stack_init(t_stack **a, char **argv, int argc);
 void			init_nodes(t_stack *a, t_stack *b);
 void			set_current_position(t_stack *stack);

@@ -12,16 +12,6 @@
 
 #include "checker.h"
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	while (*s1 && *s1 == *s2)
-	{
-		++s1;
-		++s2;
-	}
-	return (*s1 - *s2);
-}
-
 void	del_error(t_stack **a, t_stack **b)
 {
 	free_stack(a);
@@ -70,18 +60,19 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv + 1, argc == 2);
+		argv = make_input(argv);
+	stack_init(&a, argv, argc);
 	len = stack_len(a);
-	next_line = get_next_line(0);
+	next_line = get_next_line(STDIN_FILENO);
 	while (next_line)
 	{
 		parse_cmd(&a, &b, next_line);
-		next_line = get_next_line(0);
+		free(next_line);
+		next_line = get_next_line(STDIN_FILENO);
 	}
 	if (stack_sorted(a) && stack_len(a) == len)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	free(a);
+	free_stack(&a);
 }

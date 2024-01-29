@@ -14,10 +14,9 @@
 # define CHECKER_H
 
 # include "push_swap.h"
-# include "get_next_line.h"
+# include "./libft/libft.h"
 
 void	parse_cmd(t_stack **a, t_stack **b, char *c);
 void	del_error(t_stack **a, t_stack **b);
-int		ft_strcmp(char *s1, char *s2);
 
 #endif

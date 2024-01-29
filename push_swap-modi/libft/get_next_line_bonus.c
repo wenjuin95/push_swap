@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 15:00:57 by welow             #+#    #+#             */
-/*   Updated: 2023/11/21 13:00:09 by welow            ###   ########.fr       */
+/*   Created: 2023/11/01 20:38:28 by welow             #+#    #+#             */
+/*   Updated: 2024/01/28 23:04:37 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_strjoin_free(char *line, char *buffer)
 {
@@ -97,15 +97,15 @@ char	*new_line(char *line)
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
+	static char	*line[1024];
 	char		*next_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line[fd], 0) < 0)
 		return (NULL);
-	line = create_line(fd, line);
-	if (line == NULL)
+	line[fd] = create_line(fd, line[fd]);
+	if (line[fd] == NULL)
 		return (NULL);
-	next_line = get_only_next_line(line);
-	line = new_line(line);
+	next_line = get_only_next_line(line[fd]);
+	line[fd] = new_line(line[fd]);
 	return (next_line);
 }
