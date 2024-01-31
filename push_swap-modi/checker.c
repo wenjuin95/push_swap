@@ -12,6 +12,16 @@
 
 #include "checker.h"
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s1 == *s2)
+	{
+		++s1;
+		++s2;
+	}
+	return (*s1 - *s2);
+}
+
 void	del_error(t_stack **a, t_stack **b)
 {
 	free_stack(a);
@@ -57,8 +67,8 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1)
-		return (0);
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (1);
 	else if (argc == 2)
 		argv = make_input(argv);
 	stack_init(&a, argv, argc);

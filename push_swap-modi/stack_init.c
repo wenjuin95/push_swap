@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:42:38 by utente            #+#    #+#             */
-/*   Updated: 2024/01/29 21:09:25 by welow            ###   ########.fr       */
+/*   Updated: 2024/01/30 13:13:33 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ char	**make_input(char **argv)
 	argument = ft_split(str, ' ');
 	free(str);
 	return (argument);
-
 }
 
 void	stack_init(t_stack **a, char **argv, int argc)
@@ -72,17 +71,20 @@ void	stack_init(t_stack **a, char **argv, int argc)
 	int		i;
 
 	i = 0;
-	while (argv[++i])
-	{
-		if (error_syntax(argv[i]))
-			error_free(a);
-		nbr = ft_atol(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a);
-		if (error_duplicate(*a, (int)nbr))
-			error_free(a);
-		append_node(a, (int)nbr);
-	}
 	if (argc == 2)
 		free_split(argv);
+	else
+	{
+		while (argv[++i])
+		{
+			if (error_syntax(argv[i]))
+				error_free(a);
+			nbr = ft_atol(argv[i]);
+			if (nbr > INT_MAX || nbr < INT_MIN)
+				error_free(a);
+			if (error_duplicate(*a, (int)nbr))
+				error_free(a);
+			append_node(a, (int)nbr);
+		}
+	}
 }
