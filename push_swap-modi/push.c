@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_command.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 10:36:47 by utente            #+#    #+#             */
-/*   Updated: 2024/01/31 15:59:14 by welow            ###   ########.fr       */
+/*   Updated: 2023/12/31 00:25:27 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	push(t_stack **dest, t_stack **src)
 	if (*src)
 		(*src)->prev = NULL;
 	node_to_push->prev = NULL;
-	if (*dest == NULL)
+	if (NULL == *dest)
 	{
 		*dest = node_to_push;
 		node_to_push->next = NULL;
