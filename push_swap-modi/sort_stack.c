@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+//the loop to check either "a" is the first or "b" is the first
 static void	rotate_both(t_stack **a, t_stack **b, t_stack *c_node)
 {
 	while (*a != c_node->target_node && *b != c_node)
