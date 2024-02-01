@@ -6,7 +6,7 @@
 /*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:53:41 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 16:26:50 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/01 16:58:22 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 static void	swap(t_stack **head)
 {
 	if (!*head || !head)
+		return ;
+	if (!(*head)->next)
 		return ;
 	*head = (*head)->next;
 	(*head)->prev->prev = *head;

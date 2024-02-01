@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 16:44:38 by welow             #+#    #+#             */
+/*   Updated: 2024/02/01 16:44:38 by welow            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:48:34 by welow             #+#    #+#             */
@@ -11,16 +23,6 @@
 /* ************************************************************************** */
 
 #include "checker.h"
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	while (*s1 && *s1 == *s2)
-	{
-		++s1;
-		++s2;
-	}
-	return (*s1 - *s2);
-}
 
 void	del_error(t_stack **a, t_stack **b)
 {
@@ -32,30 +34,31 @@ void	del_error(t_stack **a, t_stack **b)
 
 void	parse_cmd(t_stack **a, t_stack **b, char *c)
 {
-	if (!ft_strcmp(c, "pa\n"))
+	if (!ft_strncmp(c, "pa\n", 3))
 		pa(a, b, true);
-	else if (!ft_strcmp(c, "pb\n"))
+	else if (!ft_strncmp(c, "pb\n", 3))
 		pb(b, a, true);
-	else if (!ft_strcmp(c, "rra\n"))
+	else if (!ft_strncmp(c, "rra\n", 4))
 		rra(a, true);
-	else if (!ft_strcmp(c, "rrb\n"))
+	else if (!ft_strncmp(c, "rrb\n", 4))
 		rrb(b, true);
-	else if (!ft_strcmp(c, "rrr\n"))
+	else if (!ft_strncmp(c, "rrr\n", 4))
 		rrr(a, b, true);
-	else if (!ft_strcmp(c, "ra\n"))
+	else if (!ft_strncmp(c, "ra\n", 3))
 		ra(a, true);
-	else if (!ft_strcmp(c, "rb\n"))
+	else if (!ft_strncmp(c, "rb\n", 3))
 		rb(b, true);
-	else if (!ft_strcmp(c, "rr\n"))
+	else if (!ft_strncmp(c, "rr\n", 3))
 		rr(a, b, true);
-	else if (!ft_strcmp(c, "sa\n"))
+	else if (!ft_strncmp(c, "sa\n", 3))
 		sa(a, true);
-	else if (!ft_strcmp(c, "sb\n"))
+	else if (!ft_strncmp(c, "sb\n", 3))
 		sb(b, true);
-	else if (!ft_strcmp(c, "ss\n"))
+	else if (!ft_strncmp(c, "ss\n", 3))
 		ss(a, b, true);
 	else
 		del_error(a, b);
+	free(c);
 }
 
 int	main(int argc, char **argv)
@@ -77,7 +80,6 @@ int	main(int argc, char **argv)
 	while (next_line)
 	{
 		parse_cmd(&a, &b, next_line);
-		free(next_line);
 		next_line = get_next_line(STDIN_FILENO);
 	}
 	if (stack_sorted(a) && stack_len(a) == len)
@@ -85,4 +87,5 @@ int	main(int argc, char **argv)
 	else
 		write(1, "KO\n", 3);
 	free_stack(&a);
+	free_stack(&b);
 }
