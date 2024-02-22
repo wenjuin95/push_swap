@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:53:41 by utente            #+#    #+#             */
-/*   Updated: 2024/02/01 16:58:22 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 10:32:22 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,24 @@ static void	swap(t_stack **head)
 	(*head)->prev = NULL;
 }
 
-void	sa(t_stack	**a, bool checker)
+void	sa(t_stack	**a, int checker)
 {
 	swap(a);
-	if (!checker)
+	if (checker)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **b, bool checker)
+void	sb(t_stack **b, int checker)
 {
 	swap(b);
-	if (!checker)
+	if (checker)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **a, t_stack **b, bool checker)
+void	ss(t_stack **a, t_stack **b, int checker)
 {
 	swap(a);
 	swap(b);
-	if (!checker)
+	if (checker)
 		write(1, "ss\n", 3);
 }

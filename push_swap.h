@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/01/29 21:53:35 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:00:03 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct s_stack
 	int					value;
 	int					index;
 	int					push_cost;
-	bool				above_median;
-	bool				cheapest;
+	int					above_median;
+	int					cheapest;
 	struct s_stack		*target_node;
 	struct s_stack		*next;
 	struct s_stack		*prev;
@@ -58,7 +58,7 @@ void			append_node(t_stack **stack, int nbr);
 t_stack			*find_last_node(t_stack *head);
 t_stack			*find_smallest(t_stack *stack);
 t_stack			*return_cheapest(t_stack *stack);
-bool			stack_sorted(t_stack *stack);
+int				stack_sorted(t_stack *stack);
 int				stack_len(t_stack *stack);
 void			finish_rotation(t_stack **s, t_stack *n, char c);
 
@@ -68,16 +68,16 @@ void			handle_five(t_stack **a, t_stack **b);
 void			sort_stack(t_stack **a, t_stack **b);
 
 //*** Commands ***
-void			sa(t_stack **a, bool checker);
-void			sb(t_stack **b, bool checker);
-void			ss(t_stack **a, t_stack **b, bool checker);
-void			ra(t_stack **a, bool checker);
-void			rb(t_stack **b, bool checker);
-void			rr(t_stack **a, t_stack **b, bool checker);
-void			rra(t_stack **a, bool checker);
-void			rrb(t_stack **b, bool checker);
-void			rrr(t_stack **a, t_stack **b, bool checker);
-void			pa(t_stack **a, t_stack **b, bool checker);
-void			pb(t_stack **b, t_stack **a, bool checker);
+void			sa(t_stack **a, int checker);
+void			sb(t_stack **b, int checker);
+void			ss(t_stack **a, t_stack **b, int checker);
+void			ra(t_stack **a, int checker);
+void			rb(t_stack **b, int checker);
+void			rr(t_stack **a, t_stack **b, int checker);
+void			rra(t_stack **a, int checker);
+void			rrb(t_stack **b, int checker);
+void			rrr(t_stack **a, t_stack **b, int checker);
+void			pa(t_stack **a, t_stack **b, int checker);
+void			pb(t_stack **b, t_stack **a, int checker);
 
 #endif

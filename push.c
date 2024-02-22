@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_command.c                                     :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 10:36:47 by utente            #+#    #+#             */
-/*   Updated: 2023/12/31 00:25:27 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 10:35:34 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ static void	push(t_stack **dest, t_stack **src)
 	}
 }
 
-void	pa(t_stack **a, t_stack **b, bool checker)
+void	pa(t_stack **a, t_stack **b, int checker)
 {
 	push(a, b);
-	if (!checker)
+	if (checker)
 		write(1, "pa\n", 3);
 }
 
-void	pb(t_stack **b, t_stack **a, bool checker)
+void	pb(t_stack **b, t_stack **a, int checker)
 {
 	push(b, a);
-	if (!checker)
+	if (checker)
 		write(1, "pb\n", 3);
 }

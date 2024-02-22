@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_node.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:02:48 by utente            #+#    #+#             */
-/*   Updated: 2024/01/17 12:22:18 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:00:50 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	set_current_position(t_stack *stack)
 	{
 		stack->index = i;
 		if (i <= center)
-			stack->above_median = true;
+			stack->above_median = 1;
 		else
-			stack->above_median = false;
+			stack->above_median = 0;
 		stack = stack->next;
 		++i;
 	}
@@ -81,9 +81,9 @@ void	set_push_cost(t_stack *a, t_stack *b)
 	while (b)
 	{
 		b->push_cost = b->index;
-		if (!(b->above_median))
+		if (b->above_median == 0)
 			b->push_cost = len_b - (b->index);
-		if (b->target_node->above_median)
+		if (b->target_node->above_median == 1)
 			b->push_cost += b->target_node->index;
 		else
 			b->push_cost += len_a - (b->target_node->index);
@@ -111,7 +111,7 @@ void	set_cheapest(t_stack *b)
 		}
 		b = b->next;
 	}
-	match_node->cheapest = true;
+	match_node->cheapest = 1;
 }
 
 void	init_nodes(t_stack *a, t_stack *b)

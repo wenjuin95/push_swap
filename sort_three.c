@@ -3,41 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:31:22 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 16:20:11 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:09:46 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	stack_sorted(t_stack *stack)
+int	stack_sorted(t_stack *stack)
 {
-	if (!stack)
-		return (1);
 	while (stack->next)
 	{
 		if (stack->value > stack->next->value)
-			return (false);
+			return (0);
 		stack = stack->next;
 	}
-	return (true);
+	return (1);
 }
 
 static t_stack	*find_biggest(t_stack *stack)
 {
-	int				big;
-	t_stack			*biggest_node;
+	t_stack	*biggest_node;
 
 	if (!stack)
 		return (NULL);
-	big = INT_MIN;
+	biggest_node = stack;
 	while (stack)
 	{
-		if (stack->value > big)
+		if (stack->value > biggest_node->value)
 		{
-			big = stack->value;
 			biggest_node = stack;
 		}
 		stack = stack->next;
@@ -51,11 +47,11 @@ void	sort_three(t_stack **a)
 
 	biggest_node = find_biggest(*a);
 	if (*a == biggest_node)
-		ra(a, false);
+		ra(a, 1);
 	else if ((*a)->next == biggest_node)
-		rra(a, false);
+		rra(a, 1);
 	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
+		sa(a, 1);
 }
 
 void	handle_five(t_stack **a, t_stack **b)
@@ -64,6 +60,6 @@ void	handle_five(t_stack **a, t_stack **b)
 	{
 		set_current_position(*a);
 		finish_rotation(a, find_smallest(*a), 'a');
-		pb(b, a, false);
+		pb(b, a, 1);
 	}
 }

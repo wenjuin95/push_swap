@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+        */
+/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 10:24:35 by utente            #+#    #+#             */
-/*   Updated: 2024/02/01 22:42:19 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 10:31:53 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@ static void	reverse_rotate(t_stack **stack)
 	last_node->next->prev = last_node;
 }
 
-void	rra(t_stack **a, bool checker)
+void	rra(t_stack **a, int checker)
 {
 	reverse_rotate(a);
-	if (!checker)
+	if (checker)
 		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack **b, bool checker)
+void	rrb(t_stack **b, int checker)
 {
 	reverse_rotate(b);
-	if (!checker)
+	if (checker)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a, t_stack **b, bool checker)
+void	rrr(t_stack **a, t_stack **b, int checker)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	if (!checker)
+	if (checker)
 		write(1, "rrr\n", 4);
 }

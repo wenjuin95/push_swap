@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 10:07:07 by utente            #+#    #+#             */
-/*   Updated: 2024/01/23 16:26:25 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 10:32:08 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,24 @@ static void	rotate(t_stack **stack)
 	last_node->next->next = NULL;
 }
 
-void	ra(t_stack **a, bool checker)
+void	ra(t_stack **a, int checker)
 {
 	rotate(a);
-	if (!checker)
+	if (checker)
 		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **b, bool checker)
+void	rb(t_stack **b, int checker)
 {
 	rotate(b);
-	if (!checker)
+	if (checker)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **a, t_stack **b, bool checker)
+void	rr(t_stack **a, t_stack **b, int checker)
 {
 	rotate(a);
 	rotate(b);
-	if (!checker)
+	if (checker)
 		write(1, "rr\n", 3);
 }
