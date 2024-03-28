@@ -6,7 +6,7 @@
 /*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/02/22 11:00:03 by welow            ###   ########.fr       */
+/*   Updated: 2024/02/22 13:05:04 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 # include <stdlib.h>
 # include <limits.h>
-# include <stdbool.h>
 # include <unistd.h>
-# include <stdio.h>
 # include "./libft/libft.h"
 
 typedef struct s_stack
