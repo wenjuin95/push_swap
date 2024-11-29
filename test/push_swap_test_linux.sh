@@ -22,8 +22,8 @@ rm -rf traces.txt
 rm -rf 0
 
 # -=-=-=-=-	Control errors -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-#debug
-FILE=/home/wenjuin/ps/push_swap
+
+FILE=/home/welow/ps/push_swap #change the path to your push_swap
 FICHERO=test_check.txt
 
 if [ -f "$FILE" ]; then
@@ -4991,7 +4991,7 @@ else
 fi
 if [[ $L == 0 ]]; then
   printf "${GREEN}[MEMORY OK] ${DEF_COLOR}\n";
-else 
+else
   printf "${RED}[KO LEAKS] ${DEF_COLOR}\n";
 fi
 
