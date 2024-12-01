@@ -13,28 +13,19 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <limits.h>
-# include <unistd.h>
 # include "./libft/libft.h"
 
 typedef struct s_stack
 {
-	int					value;
-	int					index;
-	int					push_cost;
-	int					above_median;
-	int					cheapest;
-	struct s_stack		*target_node;
-	struct s_stack		*next;
-	struct s_stack		*prev;
+	int					value; //value of the node
+	int					index; //index of the node
+	int					push_cost; //cost of pushing the node to the other stack
+	int					above_median; //1 if is above the middle, 0 if is below the middle
+	int					cheapest; //1 if is the cheapest node to push, 0 if is not
+	struct s_stack		*target_node; //node to push to
+	struct s_stack		*next; //next node
+	struct s_stack		*prev; //previous node
 }				t_stack;	
-
-//handle input
-char			**ft_split(char const *s, char separator);
-int				ft_strlen(char const *str);
-char			*ft_strdup(const char *s);
-char			*ft_strjoin(char const *s1, char const *s2);
 
 //handle errors
 void			free_split(char **argv);

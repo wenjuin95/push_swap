@@ -16,7 +16,6 @@
 # include "push_swap.h"
 # include "./libft/libft.h"
 
-int		ft_strcmp(char *s1, char *s2);
 void	parse_cmd(t_stack **a, t_stack **b, char *c);
 void	del_error(t_stack **a, t_stack **b);
 
