@@ -12,8 +12,9 @@
 
 #include "push_swap.h"
 
-/*
-	this to get thier position and check whether is above or below median
+/**
+ * @brief set the current position for each node and check whether is above or below median
+ * @param stack the node to set the position
 */
 void	set_current_position(t_stack *stack)
 {
@@ -23,22 +24,23 @@ void	set_current_position(t_stack *stack)
 	i = 0;
 	if (!stack)
 		return ;
-	center = stack_len(stack) / 2;
+	center = stack_len(stack) / 2; //get the middle of the stack
 	while (stack)
 	{
 		stack->index = i;
-		if (i <= center)
-			stack->above_median = 1;
+		if (i <= center) //if the index is less than the middle
+			stack->above_median = 1; //set above median to 1
 		else
-			stack->above_median = 0;
+			stack->above_median = 0; //set below median to 0
 		stack = stack->next;
 		++i;
 	}
 }
 
-/*
-	first if is for "b" to look for a
-	second if can't find then look for the smallest node to target
+/**
+ * @brief set the target node for each node in stack b
+ * @param a the stack a
+ * @param b the stack b
 */
 static void	set_target_node(t_stack *a, t_stack *b)
 {
@@ -48,28 +50,29 @@ static void	set_target_node(t_stack *a, t_stack *b)
 
 	while (b)
 	{
-		match_index = INT_MAX;
+		match_index = INT_MAX; //assign max value
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->value > b->value && current_a->value < match_index)
+			if (current_a->value > b->value && current_a->value < match_index) //if the value is greater than b and less than match_index
 			{
-				match_index = current_a->value;
-				target_node = current_a;
+				match_index = current_a->value; //assign the value to match_index
+				target_node = current_a; //assign the node to target_node
 			}
 			current_a = current_a->next;
 		}
-		if (match_index == INT_MAX)
-			b->target_node = find_smallest(a);
-		else
-			b->target_node = target_node;
+		if (match_index == INT_MAX) //if match_index is still max value
+			b->target_node = find_smallest(a); //assign the smallest node to target_node
+		else //if match_index is not max value
+			b->target_node = target_node; //assign the target_node to target_node
 		b = b->next;
 	}
 }
 
-/*
-	first if to check b is not above median(if is will skip)
-	second if is to check b target_node is above median
+/**
+ * @brief set the push cost for each node in stack b
+ * @param a the stack a
+ * @param b the stack b
 */
 void	set_push_cost(t_stack *a, t_stack *b)
 {
@@ -81,39 +84,45 @@ void	set_push_cost(t_stack *a, t_stack *b)
 	while (b)
 	{
 		b->push_cost = b->index;
-		if (b->above_median == 0)
-			b->push_cost = len_b - (b->index);
-		if (b->target_node->above_median == 1)
-			b->push_cost += b->target_node->index;
-		else
-			b->push_cost += len_a - (b->target_node->index);
+		if (b->above_median == 0) //if b node is not above median
+			b->push_cost = len_b - (b->index); //assign the push cost to the length of b minus the index
+		if (b->target_node->above_median == 1) //if the target node is above median
+			b->push_cost += b->target_node->index; //add the index of the target node to the push cost
+		else //if the target node is not above median
+			b->push_cost += len_a - (b->target_node->index); //add the length of a minus the index of the target node to the push cost
 		b = b->next;
 	}
 }
 
-/*
-	loop through and compare which is the cheapest
+/**
+ * @brief find the cheapest node in stack b
+ * @param b the stack b
 */
 void	set_cheapest(t_stack *b)
 {
 	int		match_value;
 	t_stack	*match_node;
 
-	if (! b)
+	if (b == NULL)
 		return ;
 	match_value = INT_MAX;
 	while (b)
 	{
-		if (b->push_cost < match_value)
+		if (b->push_cost < match_value) //if the push cost is less than the match value
 		{
-			match_value = b->push_cost;
-			match_node = b;
+			match_value = b->push_cost; //assign the push cost to the match value
+			match_node = b; //assign the node to the match node
 		}
 		b = b->next;
 	}
-	match_node->cheapest = 1;
+	match_node->cheapest = 1; //assign the cheapest node to 1 meaning it is the cheapest node
 }
 
+/**
+ * @brief initialize the nodes
+ * @param a the stack a
+ * @param b the stack b
+*/
 void	init_nodes(t_stack *a, t_stack *b)
 {
 	set_current_position(a);

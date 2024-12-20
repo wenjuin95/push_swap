@@ -6,7 +6,7 @@
 /*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:53:41 by utente            #+#    #+#             */
-/*   Updated: 2024/12/20 17:57:42 by welow            ###   ########.fr       */
+/*   Updated: 2024/12/20 18:19:23 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,22 @@ static void swap(t_stack **head)
     *head = second;
 }
 
+/**
+ * @brief swap in stack a
+ * @param a stack a
+ * @param checker 1 if checker is on, 0 if checker is off
+*/
 void	sa(t_stack	**a, int checker)
 {
 	swap(a);
-	if (checker)
+	if (checker == 1)
 		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **b, int checker)
 {
 	swap(b);
-	if (checker)
+	if (checker == 1)
 		write(1, "sb\n", 3);
 }
 
@@ -43,6 +48,6 @@ void	ss(t_stack **a, t_stack **b, int checker)
 {
 	swap(a);
 	swap(b);
-	if (checker)
+	if (checker == 1)
 		write(1, "ss\n", 3);
 }

@@ -12,6 +12,11 @@
 
 #include "push_swap.h"
 
+/**
+ * @brief similar to atoi but for long
+ * @param str string to convert
+ * @return converted number
+*/
 long	ft_atol(const char *str)
 {
 	long	result;
@@ -40,6 +45,11 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
+/**
+ * @brief join all argument into a single string and split it into an array
+ * @param argv argument vector
+ * @return array of strings
+*/
 char	**make_input(char **argv)
 {
 	char	*str;
@@ -65,6 +75,17 @@ char	**make_input(char **argv)
 	return (argument);
 }
 
+/**
+ * @brief check and initialize the stack
+ * @param a stack a
+ * @param argv argument vector
+ * @param argc argument count
+ * @note 1. check for syntax error
+ * @note 2. check for duplicate
+ * @note 3. check number range
+ * @note 4. "append_node" to add the node to the stack
+ * @note 5. free the split array if only 1 number is given
+*/
 void	stack_init(t_stack **a, char **argv, int argc)
 {
 	long	nbr;

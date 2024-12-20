@@ -6,16 +6,13 @@
 /*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/12/20 18:04:04 by welow            ###   ########.fr       */
+/*   Updated: 2024/12/20 18:18:29 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <limits.h>
-# include <unistd.h>
 # include "./libft/libft.h"
 
 typedef struct s_stack
@@ -27,6 +24,7 @@ typedef struct s_stack
 	int					cheapest;
 	struct s_stack		*target_node;
 	struct s_stack		*next;
+	struct s_stack		*prev;
 }				t_stack;
 
 //handle input
