@@ -3,29 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 10:24:35 by utente            #+#    #+#             */
-/*   Updated: 2024/02/22 10:31:53 by welow            ###   ########.fr       */
+/*   Updated: 2024/12/20 17:58:53 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	reverse_rotate(t_stack **stack)
+static void reverse_rotate(t_stack **stack)
 {
-	t_stack	*last_node;
+    if (!*stack || !(*stack)->next)
+        return;
 
-	if (!*stack || !stack)
-		return ;
-	last_node = find_last_node(*stack);
-	if (last_node == *stack)
-		return ;
-	last_node->prev->next = NULL;
-	last_node->next = *stack;
-	last_node->prev = NULL;
-	*stack = last_node;
-	last_node->next->prev = last_node;
+    t_stack *prev = NULL;
+    t_stack *current = *stack;
+
+    // Traverse to the last node
+    while (current->next) {
+        prev = current;
+        current = current->next;
+    }
+
+    // Adjust pointers to rotate the list
+    prev->next = NULL;
+    current->next = *stack;
+    *stack = current;
 }
 
 void	rra(t_stack **a, int checker)

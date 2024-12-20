@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: welow < welow@student.42kl.edu.my>         +#+  +:+       +#+         #
+#    By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/08 12:14:59 by utente            #+#    #+#              #
-#    Updated: 2024/02/01 22:41:53 by welow            ###   ########.fr        #
+#    Updated: 2024/12/20 18:07:01 by welow            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 NAME2 = checker
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra
 SRC = 	error_free.c push.c reverse_rotate.c rotate.c \
 		sort_stack.c sort_three.c stack_init.c stack_utils.c \
-		swap.c init_node.c 
+		swap.c init_node.c
 MAN = push_swap.c
 BONUS = checker.c
 OBJ_MAN = $(MAN:.c=.o)

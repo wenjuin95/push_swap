@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/02/22 13:05:04 by welow            ###   ########.fr       */
+/*   Updated: 2024/12/20 18:04:04 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ typedef struct s_stack
 	int					cheapest;
 	struct s_stack		*target_node;
 	struct s_stack		*next;
-	struct s_stack		*prev;
-}				t_stack;	
+}				t_stack;
 
 //handle input
 char			**ft_split(char const *s, char separator);

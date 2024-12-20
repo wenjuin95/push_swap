@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 10:07:07 by utente            #+#    #+#             */
-/*   Updated: 2024/02/22 10:32:08 by welow            ###   ########.fr       */
+/*   Updated: 2024/12/20 18:00:12 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack **stack)
+static void rotate(t_stack **stack)
 {
-	t_stack	*last_node;
+    if (!*stack || !(*stack)->next)
+        return;
 
-	if (!*stack || !stack)
-		return ;
-	last_node = find_last_node(*stack);
-	last_node->next = *stack;
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	last_node->next->prev = last_node;
-	last_node->next->next = NULL;
+    t_stack *first_node = *stack;
+    t_stack *last_node = *stack;
+
+    last_node = find_last_node(last_node);
+
+    // Adjust pointers to rotate the list
+    *stack = first_node->next;
+    first_node->next = NULL;
+    last_node->next = first_node;
 }
 
 void	ra(t_stack **a, int checker)

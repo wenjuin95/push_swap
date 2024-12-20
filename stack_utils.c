@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:49:59 by utente            #+#    #+#             */
-/*   Updated: 2024/02/22 11:08:03 by welow            ###   ########.fr       */
+/*   Updated: 2024/12/20 18:03:43 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,31 @@ t_stack	*find_last_node(t_stack *head)
 	return (head);
 }
 
-void	append_node(t_stack **stack, int nbr)
+void append_node(t_stack **stack, int nbr)
 {
-	t_stack	*node;
-	t_stack	*last_node;
+    t_stack *node;
+    t_stack *last_node;
 
-	if (!stack)
-		return ;
-	node = malloc(sizeof(t_stack));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->value = nbr;
-	if (*stack == NULL)
-	{
-		*stack = node;
-		node->prev = NULL;
-	}
-	else
-	{
-		last_node = find_last_node(*stack);
-		last_node->next = node;
-		node->prev = last_node;
-	}
+    if (!stack)
+        return;
+    node = malloc(sizeof(t_stack));
+    if (!node)
+        return;
+    node->next = NULL;
+    node->value = nbr;
+    if (*stack == NULL)
+    {
+        *stack = node;
+    }
+    else
+    {
+        last_node = *stack;
+        while (last_node->next)
+        {
+            last_node = last_node->next;
+        }
+        last_node->next = node;
+    }
 }
 
 t_stack	*find_smallest(t_stack *stack)

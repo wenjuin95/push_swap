@@ -3,28 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welow <welow@student.42.fr>                +#+  +:+       +#+        */
+/*   By: welow <welow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 09:53:41 by utente            #+#    #+#             */
-/*   Updated: 2024/02/22 10:32:22 by welow            ###   ########.fr       */
+/*   Updated: 2024/12/20 17:57:42 by welow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack **head)
+static void swap(t_stack **head)
 {
-	if (!*head || !head)
-		return ;
-	if (!(*head)->next)
-		return ;
-	*head = (*head)->next;
-	(*head)->prev->prev = *head;
-	(*head)->prev->next = (*head)->next;
-	if ((*head)->next)
-		(*head)->next->prev = (*head)->prev;
-	(*head)->next = (*head)->prev;
-	(*head)->prev = NULL;
+    if (!*head || !(*head)->next)
+        return;
+
+    t_stack *first = *head;
+    t_stack *second = (*head)->next;
+
+    first->next = second->next;
+    second->next = first;
+    *head = second;
 }
 
 void	sa(t_stack	**a, int checker)
