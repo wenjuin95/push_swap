@@ -23,7 +23,7 @@ rm -rf 0
 
 # -=-=-=-=-	Control errors -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
-FILE=/home/welow/ps/push_swap #change the path to your push_swap
+FILE=/home/welow/push_swap/push_swap #change the path to your push_swap
 FICHERO=test_check.txt
 
 if [ -f "$FILE" ]; then
@@ -44,7 +44,7 @@ exit 0
 fi
 
 if [ $1 == -v2 ];then
-ARG=$2; ./push_swap $ARG | ./pro_checker $ARG
+ARG=$2; ./push_swap $ARG | ./checker_linux $ARG
 exit 0
 fi
 
@@ -108,18 +108,18 @@ fi
 rm -rf test_check.txt
 
 $FILE "" > /dev/null 2> test_check.txt
-if [ -s "$FICHERO" ];then
-while IFS= read -r line
-do
-  if [[ $line == "Error" ]]; then
-  	printf "${GREEN}4.[OK] ${DEF_COLOR}\n";
-  else
-  	printf "${RED}4.[KO] ${DEF_COLOR}\n";
-  	break
-  fi
-done < test_check.txt
+if [ ! -s "$FICHERO" ]; then
+  printf "${GREEN}4.[OK] ${DEF_COLOR}\n";
 else
-	printf "${RED}4.[KO] ${DEF_COLOR}\n";
+  while IFS= read -r line
+  do
+    if [[ $line == "Error" ]]; then
+      printf "${GREEN}4.[OK] ${DEF_COLOR}\n";
+    else
+      printf "${RED}4.[KO] ${DEF_COLOR}\n";
+      break
+    fi
+  done < test_check.txt
 fi
 
 rm -rf test_check.txt
